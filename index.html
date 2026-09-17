@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cooperativa das Costureiras | Baixas - Inhuma-PI</title>
+
+    <meta name="description"
+        content="Catálogo digital da Cooperativa das Costureiras da localidade Baixas - Inhuma-PI">
+
+    <style>
+        /* =====================================================
+           CONFIGURAÇÕES GERAIS
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8f1e8;
+            color: #4b3832;
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* =====================================================
+           CORES
+        ===================================================== */
+
+        :root {
+            --terracota: #a85d48;
+            --terracota-escuro: #7f4032;
+            --rosa: #d99a91;
+            --creme: #fffaf3;
+            --bege: #f3e5d3;
+            --verde: #7b8b70;
+            --marrom: #4b3832;
+            --branco: #ffffff;
+            --sombra: rgba(75, 56, 50, 0.12);
+        }
+
+        /* =====================================================
+           CABEÇALHO / MENU
+        ===================================================== */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 250, 243, 0.96);
+            border-bottom: 1px solid #ead8c6;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 15px 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-weight: bold;
+            color: var(--terracota-escuro);
+            font-size: 1.1rem;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: normal;
+            color: var(--verde);
+        }
+
+        .menu {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .menu a {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: var(--marrom);
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: var(--terracota);
+        }
+
+        /* =====================================================
+           CAPA
+        ===================================================== */
+
+        .capa {
+            min-height: 90vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 60px 20px;
+
+            background:
+                linear-gradient(
+                    rgba(75, 56, 50, 0.55),
+                    rgba(75, 56, 50, 0.55)
+                ),
+                url("https://upload.wikimedia.org/wikipedia/commons/c/c0/Woman_sewing.jpg");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .capa-conteudo {
+            max-width: 850px;
+            text-align: center;
+            color: white;
+        }
+
+        .icone-costura {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .capa h1 {
+            font-family: Georgia, serif;
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .capa h2 {
+            font-size: 1.2rem;
+            font-weight: normal;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+
+        .slogan {
+            font-family: Georgia, serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 35px;
+        }
+
+        .botao {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 30px;
+
+            background: var(--terracota);
+            color: white;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .botao:hover {
+            background: var(--terracota-escuro);
+            transform: translateY(-2px);
+        }
+
+        /* =====================================================
+           SEÇÕES
+        ===================================================== */
+
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .titulo-secao {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .titulo-secao span {
+            color: var(--terracota);
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .titulo-secao h2 {
+            font-family: Georgia, serif;
+            font-size: 2.5rem;
+            color: var(--marrom);
+            margin-top: 5px;
+        }
+
+        .titulo-secao p {
+            max-width: 650px;
+            margin: 15px auto 0;
+            color: #735f58;
+        }
+
+        /* =====================================================
+           QUEM SOMOS
+        ===================================================== */
+
+        .sobre {
+            background: var(--creme);
+        }
+
+        .sobre-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .sobre-imagem img {
+            width: 100%;
+            height: 430px;
+            object-fit: cover;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px var(--sombra);
+        }
+
+        .sobre-texto h3 {
+            font-family: Georgia, serif;
+            font-size: 1.8rem;
+            color: var(--terracota-escuro);
+            margin-bottom: 15px;
+        }
+
+        .sobre-texto p {
+            margin-bottom: 18px;
+            color: #66534d;
+        }
+
+        .destaques {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .destaque {
+            padding: 18px;
+            background: var(--bege);
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .destaque strong {
+            display: block;
+            color: var(--terracota-escuro);
+        }
+
+        /* =====================================================
+           CATEGORIAS
+        ===================================================== */
+
+        .categorias {
+            background: #f3e7da;
+        }
+
+        .categorias-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .categoria {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 20px;
+            text-align: center;
+
+            box-shadow: 0 8px 25px var(--sombra);
+
+            transition: 0.3s;
+        }
+
+        .categoria:hover {
+            transform: translateY(-6px);
+        }
+
+        .categoria .emoji {
+            font-size: 3rem;
+            margin-bottom: 12px;
+        }
+
+        .categoria h3 {
+            color: var(--terracota-escuro);
+            margin-bottom: 8px;
+        }
+
+        .categoria p {
+            font-size: 0.9rem;
+            color: #76645e;
+        }
+
+        /* =====================================================
+           PRODUTOS
+        ===================================================== */
+
+        .produtos {
+            background: var(--creme);
+        }
+
+        .produtos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .produto {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--sombra);
+
+            transition: 0.3s;
+        }
+
+        .produto:hover {
+            transform: translateY(-5px);
+        }
+        .produto-imagem {
+            position: relative;
+            background: #ead8c6;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .produto-imagem img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+
+        .codigo {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+
+            background: var(--terracota);
+            color: white;
+
+            padding: 6px 12px;
+            border-radius: 20px;
+
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .produto-info {
+            padding: 22px;
+        }
+
+        .produto-info h3 {
+            font-family: Georgia, serif;
+            font-size: 1.4rem;
+            color: var(--terracota-escuro);
+            margin-bottom: 8px;
+        }
+
+        .produto-info p {
+            color: #76645e;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .produto-detalhes {
+            border-top: 1px solid #eee0d3;
+            padding-top: 12px;
+            margin-top: 10px;
+        }
+
+        .produto-detalhes p {
+            margin-bottom: 5px;
+        }
+
+        .preco {
+            color: var(--verde);
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        /* =====================================================
+           ENCOMENDAS
+        ===================================================== */
+
+        .encomendas {
+            background: var(--terracota-escuro);
+            color: white;
+        }
+
+        .encomendas .titulo-secao h2,
+        .encomendas .titulo-secao p {
+            color: white;
+        }
+
+        .encomendas-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+        }
+
+        .encomenda {
+            padding: 25px 15px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 15px;
+        }
+
+        .encomenda .emoji {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .encomenda h3 {
+            font-size: 1rem;
+        }
+
+        /* =====================================================
+           POR QUE COMPRAR
+        ===================================================== */
+
+        .vantagens {
+            background: #f3e7da;
+        }
+
+        .vantagens-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .vantagem {
+            background: white;
+            padding: 25px 15px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 7px 20px var(--sombra);
+        }
+
+        .vantagem .icone {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .vantagem h3 {
+            font-size: 1rem;
+            color: var(--terracota-escuro);
+        }
+
+        /* =====================================================
+           COMO COMPRAR
+        ===================================================== */
+
+        .comprar {
+            background: var(--creme);
+        }
+
+        .contato {
+            max-width: 850px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .contato-card {
+            padding: 25px;
+            background: white;
+            border-radius: 18px;
+
+            box-shadow: 0 8px 25px var(--sombra);
+        }
+
+        .contato-card h3 {
+            color: var(--terracota-escuro);
+            margin-bottom: 7px;
+        }
+
+        .contato-card p {
+            color: #6d5a53;
+        }
+
+        /* =====================================================
+           QR CODE
+        ===================================================== */
+
+        .qr-area {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .qr-area img {
+            width: 160px;
+            height: 160px;
+            margin: 15px auto;
+        }
+
+        /* =====================================================
+           CONTRACAPA
+        ===================================================== */
+
+        .contracapa {
+            min-height: 55vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 60px 20px;
+
+            background:
+                linear-gradient(
+                    rgba(127, 64, 50, 0.90),
+                    rgba(127, 64, 50, 0.90)
+                ),
+                url("https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/African_female_seamstress.jpg/800px-African_female_seamstress.jpg");
+
+            background-size: cover;
+            background-position: center;
+
+            color: white;
+        }
+
+        .contracapa-conteudo {
+            max-width: 800px;
+        }
+
+        .contracapa h2 {
+            font-family: Georgia, serif;
+            font-size: 2.5rem;
+            line-height: 1.3;
+            margin-bottom: 25px;
+        }
+
+        .contracapa p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        /* =====================================================
+           RODAPÉ
+        ===================================================== */
+
+        footer {
+            background: #3c2b27;
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* =====================================================
+           BOTÃO WHATSAPP
+        ===================================================== */
+
+        .whatsapp-flutuante {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+
+            width: 60px;
+            height: 60px;
+
+            border-radius: 50%;
+
+            background: #25D366;
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 1.8rem;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+
+            z-index: 2000;
+
+            transition: 0.3s;
+        }
+
+        .whatsapp-flutuante:hover {
+            transform: scale(1.1);
+        }
+
+        /* =====================================================
+           RESPONSIVIDADE
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .categorias-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .produtos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .encomendas-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .vantagens-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .sobre-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .nav {
+                flex-direction: column;
+            }
+
+            .menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px 15px;
+            }
+
+            .capa {
+                min-height: 80vh;
+            }
+
+            .capa h1 {
+                font-size: 2.7rem;
+            }
+
+            .slogan {
+                font-size: 1.2rem;
+            }
+
+            section {
+                padding: 60px 15px;
+            }
+
+            .categorias-grid,
+            .produtos-grid,
+            .contato {
+                grid-template-columns: 1fr;
+            }
+
+            .encomendas-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .vantagens-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .destaques {
+                grid-template-columns: 1fr;
+            }
+
+            .titulo-secao h2 {
+                font-size: 2rem;
+            }
+
+            .contracapa h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* =====================================================
+           IMPRESSÃO / PDF
+        ===================================================== */
+
+        @media print {
+
+            header,
+            .whatsapp-flutuante,
+            .botao {
+                display: none;
+            }
+
+            section {
+                break-inside: avoid;
+            }
+
+            body {
+                background: white;
+            }
+        }
+
+    
+/* Melhorias visuais relacionadas diretamente à costura */
+.categoria{position:relative;border:1px solid #f0dfd0;overflow:hidden}
+.categoria:after{content:"";position:absolute;left:18px;right:18px;bottom:11px;border-bottom:2px dashed #dfbca8}
+.costura-detalhe{display:inline-flex;align-items:center;gap:7px;background:#f8eee6;border-radius:20px;padding:6px 11px;font-size:.76rem;font-weight:bold;color:var(--terracota)}
+.costura-detalhe:before{content:"🧵"}
+.produto{border:1px solid #f0e1d5}
+.linha-costura{display:flex;align-items:center;gap:8px;margin:9px 0 4px;color:var(--terracota);font-size:.78rem;font-weight:bold}
+.linha-costura:before{content:"";height:1px;background:#e6cbb8;flex:1}
+.linha-costura:after{content:"✂";font-size:1rem}
+.foto-legenda{position:absolute;bottom:18px;left:18px;background:rgba(255,250,243,.94);padding:8px 13px;border-radius:20px;font-size:.8rem;font-weight:bold;color:var(--terracota-escuro)}
+</style>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         MENU
+    ===================================================== -->
+
+    <header>
+
+        <nav class="nav">
+
+            <div class="logo">
+                🧵 Cooperativa das Costureiras
+                <span>Baixas – Inhuma-PI</span>
+            </div>
+
+            <ul class="menu">
+
+                <li>
+                    <a href="#inicio">Início</a>
+                </li>
+
+                <li>
+                    <a href="#sobre">Quem Somos</a>
+                </li>
+
+                <li>
+                    <a href="#produtos">Produtos</a>
+                </li>
+
+                <li>
+                    <a href="#encomendas">Encomendas</a>
+                </li>
+
+                <li>
+                    <a href="#comprar">Como Comprar</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =====================================================
+         CAPA
+    ===================================================== -->
+
+    <section class="capa" id="inicio">
+
+        <div class="capa-conteudo">
+
+            <div class="icone-costura">
+                🧵
+            </div>
+
+            <h1>
+                Cooperativa<br>
+                das Costureiras
+            </h1>
+
+            <h2>
+                LOCALIDADE BAIXAS – INHUMA-PI
+            </h2>
+
+            <p class="slogan">
+                “Costurando sonhos, fortalecendo nossa comunidade.”
+            </p>
+
+            <a href="#produtos" class="botao">
+                Conheça nossos produtos
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         QUEM SOMOS
+    ===================================================== -->
+
+    <section class="sobre" id="sobre">
+
+        <div class="container">
+
+            <div class="titulo-secao">
+
+                <span>Nossa história</span>
+
+                <h2>Quem Somos</h2>
+
+                <p>
+                    Conheça a força e o talento das costureiras
+                    da comunidade de Baixas.
+                </p>
+
+            </div>
+
+
+            <div class="sobre-grid">
+
+                <div class="sobre-imagem">
+
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Woman_sewing.jpg"
+                        alt="Costureira trabalhando">
+
+                </div>
+
+
+                <div class="sobre-texto">
+
+                    <h3>
+                        Talento que transforma vidas
+                    </h3>
+
+                    <p>
+                        A Cooperativa das Costureiras da localidade
+                        Baixas – Inhuma-PI reúne mulheres que transformam
+                        criatividade, dedicação e habilidade em peças
+                        confeccionadas com carinho.
+                    </p>
+
+                    <p>
+                        Nosso trabalho representa muito mais do que
+                        costura. É uma forma de gerar renda, valorizar
+                        o trabalho feminino, fortalecer a economia local
+                        e criar novas oportunidades para nossa comunidade.
+                    </p>
+
+                    <p>
+                        Cada peça produzida carrega um pouco da nossa
+                        história, do nosso talento e do compromisso
+                        com a qualidade.
+                    </p>
+
+
+                    <div class="destaques">
+
+                        <div class="destaque">
+                            <strong>🧵</strong>
+                            Trabalho artesanal
+                        </div>
+
+                        <div class="destaque">
+                            <strong>👩‍🦱</strong>
+                            Trabalho feminino
+                        </div>
+
+                        <div class="destaque">
+                            <strong>❤️</strong>
+                            Feito com carinho
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+    <section class="categorias">
+        <div class="container">
+            <div class="titulo-secao"><span>O que fazemos</span><h2>Nossos Produtos</h2><p>Conheça nossas principais peças e veja um pouco do processo artesanal por trás de cada criação.</p></div>
+            <div class="categorias-grid">
+                <div class="categoria"><div class="emoji">👗</div><h3>Vestidos</h3><p>Modelos para diferentes ocasiões, com atenção ao corte, caimento e acabamento.</p><span class="costura-detalhe">Corte + costura + acabamento</span></div>
+                <div class="categoria"><div class="emoji">👚</div><h3>Blusas</h3><p>Peças confortáveis e versáteis produzidas com cuidado em cada costura.</p><span class="costura-detalhe">Medida + tecido + costura</span></div>
+                <div class="categoria"><div class="emoji">👖</div><h3>Calças</h3><p>Diferentes modelos, tamanhos e tecidos para atender diversos estilos.</p><span class="costura-detalhe">Modelagem + montagem</span></div>
+                <div class="categoria"><div class="emoji">🧵</div><h3>Uniformes</h3><p>Peças para escolas, grupos e instituições, feitas sob medida.</p><span class="costura-detalhe">Confecção personalizada</span></div>
+                <div class="categoria"><div class="emoji">👜</div><h3>Bolsas e Sacolas</h3><p>Peças práticas, resistentes e personalizadas para o dia a dia.</p><span class="costura-detalhe">Tecido + reforço + costura</span></div>
+                <div class="categoria"><div class="emoji">🪡</div><h3>Ajustes e Reparos</h3><p>Consertos e ajustes para prolongar a vida útil das suas roupas.</p><span class="costura-detalhe">Reparo + acabamento</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="produtos" id="produtos"><div class="container">
+        <div class="titulo-secao"><span>Catálogo</span><h2>Peças em Destaque</h2><p>Exemplos do trabalho de costura e do cuidado colocado em cada peça.</p></div>
+        <div class="produtos-grid">
+            <article class="produto"><div class="produto-imagem"><img loading="eager" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Woman_sewing.jpg" alt="Costureira trabalhando em máquina de costura"><span class="codigo">PEÇA 01</span></div><div class="produto-info"><h3>Vestido sob medida</h3><p>Confeccionado conforme medidas e preferências da cliente, com atenção ao caimento.</p><div class="linha-costura">DETALHE DA COSTURA</div><div class="produto-detalhes"><p>🧵 Acabamento cuidadoso</p><p>✂️ Corte personalizado</p><p class="preco">Sob consulta</p></div></div></article>
+            <article class="produto"><div class="produto-imagem"><img loading="eager" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Woman_sewing.jpg" alt="Costureira trabalhando em máquina de costura"><span class="codigo">PEÇA 02</span></div><div class="produto-info"><h3>Blusa artesanal</h3><p>Peça leve e versátil, produzida com escolha de tecido e acabamento conforme o pedido.</p><div class="linha-costura">DETALHE DA COSTURA</div><div class="produto-detalhes"><p>🪡 Costura reforçada</p><p>📏 Diferentes tamanhos</p><p class="preco">Sob consulta</p></div></div></article>
+            <article class="produto"><div class="produto-imagem"><img loading="eager" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Woman_sewing.jpg" alt="Costureira trabalhando em máquina de costura"><span class="codigo">PEÇA 03</span></div><div class="produto-info"><h3>Peça personalizada</h3><p>Produção sob encomenda para quem procura uma peça feita de acordo com suas necessidades.</p><div class="linha-costura">DETALHE DA COSTURA</div><div class="produto-detalhes"><p>🧵 Produção artesanal</p><p>🎨 Escolha de tecido e detalhes</p><p class="preco">Sob consulta</p></div></div></article>
+            <article class="produto"><div class="produto-imagem"><img loading="eager" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Woman_sewing.jpg" alt="Costureira trabalhando em máquina de costura"><span class="codigo">PEÇA 04</span></div><div class="produto-info"><h3>Uniforme sob encomenda</h3><p>Confecção para escolas, grupos e instituições, com possibilidade de personalização.</p><div class="linha-costura">DETALHE DA COSTURA</div><div class="produto-detalhes"><p>📏 Medidas e tamanhos</p><p>🧵 Acabamento profissional</p><p class="preco">Orçamento personalizado</p></div></div></article>
+            <article class="produto"><div class="produto-imagem"><img loading="eager" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Woman_sewing.jpg" alt="Costureira trabalhando em máquina de costura"><span class="codigo">PEÇA 05</span></div><div class="produto-info"><h3>Ajuste e reparo</h3><p>Serviço para ajustar, reforçar ou recuperar peças, evitando desperdício e prolongando seu uso.</p><div class="linha-costura">DETALHE DA COSTURA</div><div class="produto-detalhes"><p>🪡 Reparos e ajustes</p><p>✂️ Acabamento cuidadoso</p><p class="preco">Sob avaliação</p></div></div></article>
+            <article class="produto"><div class="produto-imagem"><img loading="eager" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Woman_sewing.jpg" alt="Costureira trabalhando em máquina de costura"><span class="codigo">PEÇA 06</span></div><div class="produto-info"><h3>Produção artesanal</h3><p>Peças confeccionadas com dedicação, desde a escolha do tecido até os últimos pontos.</p><div class="linha-costura">DETALHE DA COSTURA</div><div class="produto-detalhes"><p>🧵 Feito à mão e à máquina</p><p>❤️ Cuidado em cada detalhe</p><p class="preco">Consulte a cooperativa</p></div></div></article>
+        </div></div></section>
+
+    <section class="encomendas" id="encomendas"><div class="container"><div class="titulo-secao"><span>Produção</span><h2>Como funciona uma encomenda?</h2><p>Do primeiro contato até o acabamento, cada etapa é acompanhada com atenção.</p></div><div class="encomendas-grid">
+        <div class="encomenda"><div class="emoji">💬</div><h3>1. Pedido</h3><p>Você explica o que precisa.</p></div><div class="encomenda"><div class="emoji">📏</div><h3>2. Medidas</h3><p>Definimos tamanhos e ajustes.</p></div><div class="encomenda"><div class="emoji">🧵</div><h3>3. Costura</h3><p>A peça começa a ganhar forma.</p></div><div class="encomenda"><div class="emoji">✂️</div><h3>4. Acabamento</h3><p>Revisamos os detalhes.</p></div><div class="encomenda"><div class="emoji">🤝</div><h3>5. Entrega</h3><p>A peça fica pronta para você.</p></div>
+    </div></div></section>
+
+    <section class="vantagens"><div class="container"><div class="titulo-secao"><span>Nosso diferencial</span><h2>Por que escolher nosso trabalho?</h2></div><div class="vantagens-grid">
+        <div class="vantagem"><div class="icone">🧵</div><h3>Produção artesanal</h3></div><div class="vantagem"><div class="icone">👩‍🔧</div><h3>Trabalho feminino</h3></div><div class="vantagem"><div class="icone">📏</div><h3>Peças sob medida</h3></div><div class="vantagem"><div class="icone">❤️</div><h3>Feito com carinho</h3></div><div class="vantagem"><div class="icone">🏡</div><h3>Fortalece a comunidade</h3></div>
+    </div></div></section>
+
+    <section class="comprar" id="comprar"><div class="container"><div class="titulo-secao"><span>Fale conosco</span><h2>Como Comprar</h2><p>Entre em contato para consultar modelos, medidas, tecidos, prazos e valores.</p></div><div class="contato">
+        <div class="contato-card"><h3>📱 WhatsApp</h3><p>Envie uma mensagem para consultar produtos e fazer sua encomenda.</p><p><strong>(89) 99432-1124</strong></p><a class="botao" href="https://wa.me/5589994321124" target="_blank" rel="noopener noreferrer">💬 Chamar no WhatsApp</a></div><div class="contato-card"><h3>📍 Localização</h3><p>Localidade Baixas – Inhuma-PI.</p></div><div class="contato-card"><h3>🧵 Encomendas</h3><p>Informe o tipo de peça, tamanho e detalhes que deseja.</p></div><div class="contato-card"><h3>🤝 Atendimento</h3><p>Converse diretamente com a cooperativa para combinar todos os detalhes.</p></div>
+    </div></div></section>
+
+    <section class="contracapa"><div class="contracapa-conteudo"><h2>“Cada ponto conta uma história. Cada peça carrega o talento de uma mulher.”</h2><p>Cooperativa das Costureiras</p><p>Localidade Baixas – Inhuma-PI</p></div></section>
+    <footer><p>© 2026 Cooperativa das Costureiras – Baixas, Inhuma-PI. Feito com 🧵, dedicação e trabalho coletivo.</p></footer>
+    <a href="https://wa.me/5589994321124" class="whatsapp-flutuante" target="_blank" rel="noopener noreferrer" aria-label="Conversar pelo WhatsApp">💬</a>
+</body>
+</html>
